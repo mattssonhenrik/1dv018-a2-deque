@@ -1,12 +1,12 @@
 package assignment2.deque;
 
-public class MyDoubleEndedDeque {
-    MyNode head;
-    MyNode tail;
+public class MyDoubleEndedDeque<Element> {
+    MyNode<Element> head;  
+    MyNode<Element> tail;
     int listSize;
 
-    public void addFirst(int nodeValue) {
-        MyNode newNode = new MyNode(nodeValue);
+    public void addFirst(Element nodeValue) {
+        MyNode<Element> newNode = new MyNode<>(nodeValue);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -19,14 +19,14 @@ public class MyDoubleEndedDeque {
         }
     }
 
-    public void addLast(int nodeValue) {
-        MyNode newNode = new MyNode(nodeValue);
+    public void addLast(Element nodeValue) {
+        MyNode<Element> newNode = new MyNode<>(nodeValue);
         if (head == null) {
             head = newNode;
             tail = newNode;
             listSize++;
         } else {
-            MyNode traverseNode = head;
+            MyNode<Element> traverseNode = head;
             while (traverseNode.nextNode != null) {
                 traverseNode = traverseNode.nextNode;
             }
@@ -62,7 +62,7 @@ public class MyDoubleEndedDeque {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        MyNode nodeValue = head;
+        MyNode<Element> nodeValue = head;
         while (nodeValue != null) {
             stringBuilder.append(nodeValue.value);
             nodeValue = nodeValue.nextNode;
@@ -73,7 +73,7 @@ public class MyDoubleEndedDeque {
     }
 
     public static void main(String[] args) {
-        MyDoubleEndedDeque myQ = new MyDoubleEndedDeque();
+        MyDoubleEndedDeque<Integer> myQ = new MyDoubleEndedDeque<>();
         myQ.addFirst(1);
         System.out.println(myQ);
         myQ.addFirst(2);

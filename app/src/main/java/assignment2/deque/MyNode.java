@@ -1,11 +1,11 @@
 package assignment2.deque;
 
-public class MyNode {
-    int value;
-    MyNode nextNode;
-    MyNode prevNode;
+public class MyNode<Element> { 
+    Element value;
+    MyNode<Element> nextNode;
+    MyNode<Element> prevNode;
 
-    public MyNode(int nodeValue) {
+    public MyNode(Element nodeValue) {
         this.value = nodeValue;
     }
 }
